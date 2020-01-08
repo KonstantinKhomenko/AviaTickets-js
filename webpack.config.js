@@ -76,9 +76,7 @@ module.exports = {
   //Или плагин для сборки html страницы и css кода (скрипты вставляются в html, куски css собираются в один файл).
   plugins: [
     new MiniCssExtractPlugin({ filename: './style.css' }),
-    new HtmlWebpackPlugin({
-      template: 'index.html',
-    }),
+    new HtmlWebpackPlugin({ template: 'index.html' }),
   ],
   // Кроме entry, мы можем указать поле, куда (в какой файл) собирать конечный результат. Это свойство задаётся с помощью поля output.
   //По умолчанию, весь результирующий код собирается в папку dist.
