@@ -46,8 +46,7 @@ class TicketsUI {
          <div class="card ticket-card">
           <div class="ticket-airline d-flex align-items-center">
             <img src="${ticket.airline_logo}" class="ticket-airline-img"/>
-            <span class="ticket-airline-name"
-              >${ticket.airline_name}</span>
+            <span class="ticket-airline-name">${ticket.airline_name}</span>
           </div>
           <div class="ticket-destination d-flex align-items-center">
             <div class="d-flex align-items-center mr-auto">

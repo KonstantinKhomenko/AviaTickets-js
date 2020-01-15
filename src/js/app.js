@@ -4,15 +4,27 @@ import locations from './store/locations';
 import formUI from './views/form';
 import ticketsUI from './views/tickets';
 import currencyUI from './views/currency';
+import favorite from './store/favorites';
 
 document.addEventListener('DOMContentLoaded', e => {
   const form = formUI.form;
+  const favoriteBtn = document.querySelector('.dropdown-trigger');
 
   // Events
   initApp();
   form.addEventListener('submit', e => {
     e.preventDefault();
     onFormSubmit();
+  });
+
+  ticketsUI.container.addEventListener('click', e => {
+    if(e.target.classList.contains('add-favorite')){
+      console.log('favorite');
+    }
+  });
+
+  favoriteBtn.addEventListener('click', e => {
+    console.log('favorite button');
   });
 
   // handlers
@@ -38,16 +50,6 @@ document.addEventListener('DOMContentLoaded', e => {
 
     ticketsUI.renderTickets(locations.lastSearch);
   }
-
-
-  //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-  ticketsUI.container.addEventListener('click', ( { target: { className } } ) => {
-    if(className === 'waves-effect waves-light btn-small green darken-1 add-favorite ml-auto'){
-      console.log('WORK');
-    }
-  });
-
 
 });
 
