@@ -44,7 +44,6 @@ class Locations {
     return this.airlines[code] ? this.airlines[code].logo : null;
   }
 
-  // *переделать createShortCities
   createShortCities(cities) {
     return Object.entries(cities).reduce((acc, [, city]) => {
       acc[city.full_name] = null;
@@ -53,7 +52,7 @@ class Locations {
   }
 
   serializeAirlines(airlines) {
-    return airlines.reduce((acc, item) => { 
+    return airlines.reduce((acc, item) => {
       item.logo = `http://pics.avs.io/200/200/${item.code}.png`;
       item.name = item.name || item.name_translations.en;
       acc[item.code] = item;
@@ -68,10 +67,8 @@ class Locations {
     }, {});
   }
 
-  // *переделать serialize
   serializeCities(cities) {
     return cities.reduce((acc, city) => {
-
       const country_name = this.countries[city.country_code].name;
       city.name = city.name || city.name_translations.en;
 
@@ -95,6 +92,7 @@ class Locations {
     return Object.values(tickets).map(ticket => {
       return {
         ...ticket,
+        id: Math.ceil(Math.random() * 100000),
         origin_name: this.getCityNameByCode(ticket.origin),
         destination_name: this.getCityNameByCode(ticket.destination),
         airline_logo: this.getAirlinesLogoByCode(ticket.airline),
@@ -104,7 +102,7 @@ class Locations {
       };
     });
   }
-  
+
 }
 
 const locations = new Locations(api, { formatDate });

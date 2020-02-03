@@ -7,8 +7,8 @@ class TicketsUI {
     }
 
     renderTickets(tickets) {
-        this.clearContainer(); 
-        
+        this.clearContainer();
+
         if (!tickets.length) {
             this.showEmptyMsg();
             return;
@@ -26,7 +26,7 @@ class TicketsUI {
     }
 
     clearContainer() {
-        this.container.innerHTML = '';       
+        this.container.innerHTML = '';
     }
 
     showEmptyMsg() {
@@ -41,9 +41,9 @@ class TicketsUI {
     }
 
     static ticketTemplate(ticket, currency) {
-        return `          
+        return `
         <div class="col s12 m6">
-         <div class="card ticket-card">
+         <div class="card ticket-card" id="${ticket.id}">
           <div class="ticket-airline d-flex align-items-center">
             <img src="${ticket.airline_logo}" class="ticket-airline-img"/>
             <span class="ticket-airline-name">${ticket.airline_name}</span>

@@ -1,3 +1,7 @@
+body {
+  background-color: #65fcee;
+}
+
 .d-flex {
   display: flex;
 }

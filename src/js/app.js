@@ -4,7 +4,8 @@ import locations from './store/locations';
 import formUI from './views/form';
 import ticketsUI from './views/tickets';
 import currencyUI from './views/currency';
-import favorite from './store/favorites';
+import favoriteTickets from './store/favoriteTickets';
+import favoriteUI from './views/favorite';
 
 document.addEventListener('DOMContentLoaded', e => {
   const form = formUI.form;
@@ -17,17 +18,19 @@ document.addEventListener('DOMContentLoaded', e => {
     onFormSubmit();
   });
 
+  // Add favorites
   ticketsUI.container.addEventListener('click', e => {
     if(e.target.classList.contains('add-favorite')){
-      console.log('favorite');
+      const key = e.target.parentElement.getAttribute('id');
+      const favTicket = locations.lastSearch.find(item => item.id == key);
+      favoriteTickets.setFavorite(favTicket);
     }
   });
 
-  favoriteBtn.addEventListener('click', e => {
-    console.log('favorite button');
-  });
+  // Delete favorites
 
-  // handlers
+  //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  // Handlers
   async function initApp() {
     await locations.init();
     formUI.setAutocompleteData(locations.shortCities);
@@ -52,10 +55,3 @@ document.addEventListener('DOMContentLoaded', e => {
   }
 
 });
-
-// *1 - создать отдельный метод для получения airlines
-// *2 - в init добавить получение airlines
-// *3 - serializeAirlines
-// *4 - serializeTickets и переделать serializeCities и createShortCities и getCityCodeByKey
-// *5 - новые методы getAirlineNameByCode, getAirlineLogoByCode, getCityNameByCode
-// *6 - TicketsUI
