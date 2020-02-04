@@ -11,6 +11,7 @@ class Locations {
     this.airlines = {};
     this.formatDate = helpers.formatDate;
   }
+
   async init() {
     const response = await Promise.all([
       this.api.countries(),
@@ -79,6 +80,7 @@ class Locations {
         country_name,
         full_name,
       };
+
       return acc;
     }, {});
   }
@@ -102,7 +104,6 @@ class Locations {
       };
     });
   }
-
 }
 
 const locations = new Locations(api, { formatDate });

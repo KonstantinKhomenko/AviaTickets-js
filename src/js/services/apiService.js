@@ -43,7 +43,6 @@ class Api {
       return Promise.reject(err);
     }
   }
-  
 }
 
 const api = new Api(config);

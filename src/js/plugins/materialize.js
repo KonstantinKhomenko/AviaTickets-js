@@ -1,12 +1,12 @@
-import 'materialize-css/dist/css/materialize.min.css';
-import 'materialize-css/dist/js/materialize.min.js';
+import "materialize-css/dist/css/materialize.min.css";
+import "materialize-css/dist/js/materialize.min.js";
 
 // Init dropdown
-const dropdown = document.querySelectorAll('.dropdown-trigger');
+const dropdown = document.querySelectorAll(".dropdown-trigger");
 M.Dropdown.init(dropdown);
 
 // Init select
-const select = document.querySelectorAll('select');
+const select = document.querySelectorAll("select");
 M.FormSelect.init(select);
 
 export function getSelectInstance(elem) {
@@ -14,7 +14,7 @@ export function getSelectInstance(elem) {
 }
 
 // Init Autocomplete
-const autocomplete = document.querySelectorAll('.autocomplete');
+const autocomplete = document.querySelectorAll(".autocomplete");
 M.Autocomplete.init(autocomplete);
 
 export function getAutocompleteInstance(elem) {
@@ -22,10 +22,10 @@ export function getAutocompleteInstance(elem) {
 }
 
 // Init datepickers
-const datepickers = document.querySelectorAll('.datepicker');
+const datepickers = document.querySelectorAll(".datepicker");
 M.Datepicker.init(datepickers, {
   showClearBtn: true,
-  format: 'yyyy-mm',
+  format: "yyyy-mm"
 });
 
 export function getDatePickerInstance(elem) {
